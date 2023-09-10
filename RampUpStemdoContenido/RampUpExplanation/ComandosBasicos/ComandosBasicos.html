@@ -1,0 +1,842 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Comandos Básicos</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="087a0aff-d2da-4f5d-a21a-c1e7ac0ff3bd" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">🪖</span></div><h1 class="page-title">Comandos Básicos</h1><p class="page-description"></p></header><div class="page-body"><p id="94f77c1c-2045-4923-8386-850450d56afb" class="">Esta sección te introduce a comandos esenciales para que puedas moverte con confianza en el entorno Linux, muy necesario en ciertas tareas.</p><p id="a43a5593-acd3-40e6-9d66-30c97801244f" class="">
+</p><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">Formato general comandos</summary><div class="indented"><p id="dc731b9b-ac34-418a-999a-9c93eed0960c" class="">Los comandos en Linux siguen un formato general que incluye el nombre del comando y, en algunos casos, opciones y argumentos.</p><p id="ab52d142-11ab-4b8a-b50e-8c723c012729" class="">Es importante señalar que no todos los comandos requieren opciones o argumentos, por lo que es fundamental consultar la documentación<div class="indented"><pre id="f6a8f8b8-e596-47b4-8940-606ffad8ae5a" class="code"><code>comando [opciones] [argumentos]</code></pre><ul id="2b708e94-f1c3-4399-a2c2-d0a1179c03e7" class="bulleted-list"><li style="list-style-type:disc"><strong>comando</strong>: Es el nombre del comando que deseas ejecutar. Por ejemplo, <strong><code>ls</code></strong>, <strong><code>cd</code></strong>, <code><strong>mkdir</strong></code>, etc.</li></ul><ul id="b917c29d-cf55-4e9f-9561-23307e62478f" class="bulleted-list"><li style="list-style-type:disc"><strong>opciones</strong>: Son indicadores adicionales que modifican el comportamiento del comando. Las opciones suelen comenzar con un guion <strong><code>-</code></strong> o dos guiones <strong><code>--</code></strong>.</li></ul><ul id="49a7dda7-73d7-4c36-92f1-f7215787a03a" class="bulleted-list"><li style="list-style-type:disc"><strong>argumentos</strong>: Son los elementos que el comando necesita para realizar su función. Pueden ser nombres de archivos, directorios u otra información que el comando requiera.</li></ul></div></p></div></details><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">Sistema de ficheros</summary><div class="indented"><p id="6c2cc820-b50a-431a-8fbf-d6c3f36c4062" class="">Los comandos para el tratamiento de archivos en Linux son herramientas fundamentales para manejar, crear, modificar y gestionar archivos y directorios en el sistema operativo.</p><p id="2d85c185-687f-45bb-af33-4ac7b4fd7700" class="">
+</p><pre id="ce7933d9-3162-4724-8da9-173cf50458f1" class="code code-wrap"><code>ls: Muestra el contenido de un directorio. Puedes usar opciones como -l para ver los detalles en formato largo y -a para mostrar archivos ocultos.
+
+cd: Cambia el directorio actual. Por ejemplo, cd carpeta te llevará a la carpeta llamada &quot;carpeta&quot;.
+
+mkdir: Crea un nuevo directorio. Por ejemplo, mkdir nuevo_directorio creará un directorio llamado &quot;nuevo_directorio&quot;.
+
+touch: Crea un archivo vacío o actualiza la marca de tiempo de un archivo existente. Por ejemplo, touch archivo.txt creará un archivo llamado &quot;archivo.txt&quot;.
+
+cp: Copia archivos o directorios. Por ejemplo, cp archivo.txt carpeta_destino copiará &quot;archivo.txt&quot; en la carpeta &quot;carpeta_destino&quot;.
+
+mv: Mueve o renombra archivos y directorios. Por ejemplo, mv archivo.txt nuevo_nombre.txt renombrará &quot;archivo.txt&quot; como &quot;nuevo_nombre.txt&quot;.
+
+rm: Elimina archivos o directorios. Ten cuidado con este comando, ya que los archivos eliminados no se pueden recuperar directamente. Por ejemplo, rm archivo.txt eliminará &quot;archivo.txt&quot;.
+
+cat: Muestra el contenido de un archivo en la terminal. Por ejemplo, cat archivo.txt mostrará el contenido de &quot;archivo.txt&quot;.
+
+nano o vim: Editores de texto en la línea de comandos que te permiten crear o modificar archivos de texto.
+
+chmod: Cambia los permisos de un archivo o directorio. Por ejemplo, chmod +x archivo.sh otorgará permisos de ejecución al archivo &quot;archivo.sh&quot;.
+
+chown: Cambia el propietario de un archivo o directorio. Por ejemplo, chown usuario archivo.txt cambiará el propietario de &quot;archivo.txt&quot; al usuario especificado.</code></pre><p id="0007c99d-6679-4e69-b47a-f25478ffb977" class="">
+</p><p id="05da5c3c-46de-4e0e-bded-658a116ee948" class="">Estos son solo algunos ejemplos de comandos para el tratamiento de archivos en Linux. Cada comando tiene opciones adicionales y funcionalidades específicas que pueden ser exploradas según tus necesidades.</p><p id="1f53c9c0-b6df-4986-8268-ceff54bbc7a4" class="">
+</p></div></details><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">Expresiones regulares </summary><div class="indented"><p id="08c91f0a-361a-48a5-a251-fb270e9df5aa" class="">Son herramientas poderosas para buscar y filtrar información en la salida de comandos en la línea de comandos. Con ellas, puedes identificar patrones específicos en el texto producido por un comando y tomar acciones basadas en esos patrones.</p><p id="7fbc048c-0ebb-4d4b-b27a-cfcd7680492d" class="">
+</p><pre id="4ddf5185-e865-4aae-ae0a-3996bc88c997" class="code code-wrap"><code>1. Ejemplo: &#x27;Buscar archivos con una extensión específica&#x27;
+
+Comando: ls | grep &#x27;\.txt$&#x27;
+Definición: Este comando lista los archivos en el directorio actual y luego utiliza el comando grep con una expresión regular para filtrar solo los archivos con extensión &quot;.txt&quot;.
+
+2. Ejemplo: &#x27;Filtrar direcciones IP en la salida de ifconfig&#x27;
+
+Comando: ip -a a | grep -E -o &#x27;inet (addr:)?([0-9]*\.){3}[0-9]*&#x27;
+Definición: mostrar información detallada sobre las interfaces de red, incluidas las direcciones IP asignadas. luego se utiliza grep con una expresión regular para extraer las direcciones IP válidas del resultado.
+
+3. Ejemplo: &#x27;Buscar patrones de palabras en un archivo de texto&#x27;
+
+Comando: grep &#x27;patrón&#x27; archivo.txt
+Definición: Utiliza grep para buscar la ocurrencia del patrón especificado en el archivo de texto y muestra las líneas que contienen el patrón.
+
+4. Ejemplo: &#x27;Reemplazar texto en un archivo usando sed&#x27;
+
+Comando: sed -i &#x27;s/antiguo/nuevo/g&#x27; archivo.txt
+Definición: Utiliza sed con una expresión regular para reemplazar todas las ocurrencias de &quot;antiguo&quot; con &quot;nuevo&quot; en el archivo &quot;archivo.txt&quot;.
+
+5. Ejemplo: &#x27;Validar un formato de dirección de correo electrónico&#x27;
+
+Comando: echo &#x27;correo@stemdo.com&#x27; | grep -P &#x27;^\w+@stemdo\.\w+$&#x27;
+Definición: Utiliza grep con la opción -P (que habilita las expresiones regulares Perl) para validar si la cadena cumple con el formato de una dirección de correo electrónico.
+
+6. Ejemplo: &#x27;Filtrar líneas con números en un archivo de texto&#x27;
+
+Comando: grep &#x27;[0-9]&#x27; archivo.txt
+Definición: Utiliza grep con una expresión regular para mostrar las líneas del archivo que contienen al menos un dígito numérico.</code></pre></div></details><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">Redirecciones y pipelines</summary><div class="indented"><p id="c83ffd5d-7061-4843-bfd6-e4a703cd2a6f" class="">
+</p><ul id="62e0aff3-0163-4177-a54a-d7c652f9c9fc" class="bulleted-list"><li style="list-style-type:disc">Redirecciones: <p id="e8c7b1bc-1202-42b1-87db-4869d61105ab" class="">Las redirecciones en Linux permiten gestionar la entrada y salida de datos entre comandos y archivos. Esto facilita la manipulación y el flujo de datos en la línea de comandos. Las redirecciones se logran utilizando símbolos especiales como <code><strong>&gt;</strong></code>, <code><strong>&lt;</strong></code>, <code><strong>&gt;&gt;</strong></code> y <code><strong>|</strong></code>.</p><p id="21da5ab2-4675-4fe9-8fa5-3cbaf32b3e4a" class="">
+</p><pre id="e0847cb5-a01d-4865-8835-6e73ff5d4179" class="code code-wrap"><code>1. Ejemplo: &#x27;Redirigir la salida de un comando a un archivo&#x27;
+
+Comando: ls &gt; lista_archivos.txt
+Definición: lista los archivos en el directorio actual y redirige la salida estándar al archivo &quot;lista_archivos.txt&quot;.
+
+2. Ejemplo: &#x27;Redirigir la entrada de un comando desde un archivo&#x27;
+
+Comando: sort &lt; archivo_desordenado.txt
+Definición: toma la entrada estándar desde el archivo &quot;archivo_desordenado.txt&quot; y la ordena.
+
+3. Ejemplo: &#x27;Agregar contenido al final de un archivo existente&#x27;
+
+Comando: echo &quot;Nuevo contenido&quot; &gt;&gt; archivo_existente.txt
+Definición: agrega el texto &quot;Nuevo contenido&quot; al final del archivo &quot;archivo_existente.txt&quot;.</code></pre><p id="4b541ccc-4899-4834-b624-1612c831dfe2" class="">
+</p></li></ul><ul id="fa48b693-ed03-496c-9423-54ad689fa105" class="bulleted-list"><li style="list-style-type:disc">Pipelines<p id="b73fa76d-e942-444b-ab28-fddd89b70508" class="">Son un mecanismo que nos permite encadenar varios comandos para que la salida de uno se convierta en la entrada del siguiente. Esto permite realizar operaciones más complejas al combinar las capacidades de diferentes comandos. Utilizando el símbolo <code><strong>|.</strong></code></p><p id="7fc7890c-8174-48a3-9b87-521cb2d5de50" class="">
+</p><pre id="4ecdbfe8-8349-45cf-9a6f-7c3cf848fc0e" class="code code-wrap"><code>1. Ejemplo: &#x27;Contar líneas en un archivo usando un pipeline&#x27;
+
+Comando: cat archivo.txt | wc -l
+Definición: El comando cat muestra el contenido del archivo &quot;archivo.txt&quot; y pasa su salida como entrada al comando wc -l, que cuenta las líneas.
+
+2. Ejemplo: &#x27;Filtrar y contar archivos con cierta extensión&#x27;
+
+Comando: ls | grep &#x27;\.txt$&#x27; | wc -l
+Definición: Lista los archivos en el directorio actual, filtra los archivos con extensión &quot;.txt&quot; usando grep, y luego cuenta el número de archivos usando wc -l.
+
+3. Ejemplo: &#x27;Encontrar archivos modificados recientemente&#x27;
+
+Comando: find /ruta/del/directorio -type f -mtime -7 | xargs ls -l
+Definición: Busca archivos en el directorio especificado que han sido modificados en los últimos 7 días, y utiliza xargs para pasar los nombres de archivo a ls -l y mostrar detalles.</code></pre><p id="433926ca-32fd-4e3c-a42d-b4aa585df2b0" class="">
+</p></li></ul></div></details><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">Permisos y usuario</summary><div class="indented"><p id="d4a59f49-7484-461a-8038-68c3a21c7158" class="">
+</p><ul id="bc684440-c261-43d9-bd87-ea04849016ee" class="bulleted-list"><li style="list-style-type:disc"><strong>Permisos:</strong> Los sistemas basados en Linux asignan permisos a archivos y directorios para determinar qué usuarios o grupos pueden acceder, leer, escribir o ejecutar dichos archivos. Los permisos se dividen en tres categorías: propietario, grupo y otros. Cada categoría tiene tres tipos de permisos: lectura (r), escritura (w) y ejecución (x).</li></ul><p id="a1669e34-19bf-467a-9594-eca8a738421c" class=""><div class="indented"><pre id="6b157c39-eea6-4583-a1e6-af9861b8d3c1" class="code code-wrap"><code>1. chmod: Cambia los permisos de archivos y directorios.
+
+Ejemplo: chmod +x archivo.sh otorga permisos de ejecución al archivo &quot;archivo.sh&quot;.
+Ejemplo: chmod 644 archivo.txt establece permisos de lectura y escritura para el propietario y solo lectura para el grupo y otros en &quot;archivo.txt&quot;.
+
+2. chown: Cambia el propietario y/o grupo de archivos y directorios.
+
+Ejemplo: chown nuevo_propietario archivo.txt cambia el propietario de &quot;archivo.txt&quot; al usuario &quot;nuevo_propietario&quot;.
+Ejemplo: chown nuevo_propietario:nuevo_grupo archivo.txt cambia el propietario y el grupo de &quot;archivo.txt&quot;.
+
+3.chgrp: Cambia el grupo de archivos y directorios.
+
+Ejemplo: chgrp nuevo_grupo archivo.txt cambia el grupo de &quot;archivo.txt&quot; al grupo &quot;nuevo_grupo&quot;.
+
+4. ls: Muestra información sobre archivos y directorios, incluyendo permisos y propietario.
+
+Ejemplo: ls -l muestra una lista detallada que incluye permisos, propietario y grupo de archivos y directorios.
+
+5. umask: Configura la máscara de creación de archivos para determinar los permisos predeterminados.
+
+Ejemplo: umask 022 establece permisos predeterminados de escritura para el propietario y solo lectura para grupo y otros.
+
+6. su: Cambia al usuario superusuario &quot;root&quot; (requiere privilegios).
+
+Ejemplo: su solicita la contraseña de &quot;root&quot; y te convierte en el superusuario.
+
+7. sudo: Ejecuta un comando con los privilegios de superusuario.
+
+Ejemplo: sudo apt-get update actualiza el sistema utilizando los privilegios de superusuario.
+
+8. passwd: Cambia la contraseña de un usuario (requiere privilegios).
+
+Ejemplo: passwd usuario cambia la contraseña del usuario &quot;usuario&quot;.</code></pre></div></p><p id="39f4c954-7f51-40bf-b1f6-a83f8b770da8" class="">
+</p><p id="1da2ee50-39a6-4a8f-af13-fec7c5ad8dd7" class="">
+</p><ul id="aeacbd3e-e0a6-43d7-8f92-690799161edf" class="bulleted-list"><li style="list-style-type:disc"><strong>Usuarios: </strong>Linux permite la creación de múltiples usuarios, cada uno con su propio espacio y configuración personalizada. Un usuario en Linux tiene un nombre único y una identificación de usuario (UID) asociada. Además, los usuarios pueden pertenecer a uno o más grupos.<p id="24227a7b-a823-4c5a-a534-80911665ba52" class="">Recuerda que algunos comandos pueden requerir privilegios de superusuario para llevar a cabo ciertas acciones.</p><p id="7403ec2b-31a4-46b7-8bfa-bab280a223c3" class="">
+</p><pre id="e643ff54-3dc8-47ec-8ffa-cc928f44ccf5" class="code code-wrap"><code>1. useradd: Agrega un nuevo usuario al sistema.
+
+Ejemplo: sudo useradd nuevo_usuario agrega un usuario llamado &quot;nuevo_usuario&quot; al sistema.
+
+2. passwd: Cambia la contraseña de un usuario.
+
+Ejemplo: passwd nombre_usuario cambia la contraseña del usuario &quot;nombre_usuario&quot;.
+
+3. userdel: Elimina un usuario del sistema.
+
+Ejemplo: sudo userdel usuario_a_eliminar elimina el usuario &quot;usuario_a_eliminar&quot;.
+
+4. usermod: Modifica las propiedades de un usuario existente.
+
+Ejemplo: sudo usermod -aG nuevo_grupo usuario_existente agrega al usuario &quot;usuario_existente&quot; al grupo &quot;nuevo_grupo&quot;.
+
+5. id: Muestra la información de identificación del usuario y los grupos a los que pertenece.
+
+Ejemplo: id nombre_usuario muestra información sobre el usuario &quot;nombre_usuario&quot;.
+
+6. who: Muestra una lista de usuarios conectados al sistema.
+
+Ejemplo: who muestra los usuarios que están actualmente conectados.
+
+7. w: Proporciona información detallada sobre los usuarios conectados y sus actividades.
+
+Ejemplo: w muestra información sobre los usuarios conectados y sus actividades.
+
+8. su: Cambia al usuario superusuario &quot;root&quot;.
+
+Ejemplo: su te convierte en el usuario &quot;root&quot; con privilegios superiores.
+
+9. sudo: Ejecuta comandos con los privilegios de superusuario.
+
+Ejemplo: sudo comando ejecuta &quot;comando&quot; con los privilegios de superusuario.
+
+10. groups: Muestra los grupos a los que pertenece un usuario.
+
+Ejemplo: groups nombre_usuario muestra los grupos a los que pertenece &quot;nombre_usuario&quot;.</code></pre><p id="8659518c-7131-4209-aabd-1e33b2931ec5" class="">
+</p></li></ul><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">Descarga de ficheros</summary><div class="indented"><p id="2f8c5813-3c84-45f9-af2c-7a0604712e18" class="">
+</p><ul id="a925e657-1632-475c-87e5-67da83c4353b" class="bulleted-list"><li style="list-style-type:disc">wget<pre id="54895f7c-8294-4d1f-b9b6-c0068f8a838b" class="code code-wrap"><code>wget https://ejemplo.com/archivo.txt
+wget  -O nombreDistinto.txt https://ejemplo.com/archivo.txt</code></pre></li></ul><p id="7e26b49c-52fa-4f99-854a-6396c81b7aca" class=""><div class="indented"><p id="4cb6b231-9bcb-4466-b7f0-6c948a55116e" class="">El flag <code><strong>-O</strong></code> se utiliza para especificar el nombre del archivo de salida. En este caso, el archivo descargado se guardará como &quot;nombreDistinto.txt&quot;.</p></div></p><p id="311c9af4-4204-41f9-9b13-da44ab4f6380" class="">
+</p><ul id="a361cb55-4a59-45b9-aa42-df6c385058b2" class="bulleted-list"><li style="list-style-type:disc">curl<pre id="f1e6a9ba-4d2a-44e2-b868-3e4dc9c30bb3" class="code code-wrap"><code>curl -O https://ejemplo.com/archivo.txt
+curl -o archivo.txt https://ejemplo.com/archivo.txt </code></pre><p id="e5b7e315-94e5-4ac6-8ae2-f3ced0c2947e" class="">El flag <code>-O</code> guardará el archivo en el directorio de trabajo actual con el mismo nombre de archivo que el remoto.
+El flag <code>-o</code> te permite especificar un nombre de archivo o ubicación diferente.</p><p id="dea2d686-080b-4dc6-b4b1-3b2692a58d52" class="">
+</p></li></ul><p id="fdcfa36c-607b-4602-a895-c3d0b243d6b0" class="">Ambos comandos son poderosos y versátiles. Puedes elegir el que te resulte más cómodo o que mejor se ajuste a tus necesidades. Recuerda que debes tener permisos adecuados para escribir en el directorio donde deseas guardar los archivos descargados.</p><p id="5c009aba-6ad2-4cec-9c56-b951e6ec9084" class="">
+</p></div></details></div></details></div></article></body></html>
